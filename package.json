@@ -15,14 +15,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jameygronewald/trackPacker.git"
+    "url": "git+https://github.com/bread-w/gt-react-google-books.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jameygronewald/trackPacker/issues"
+    "url": "https://github.com/bread-w/gt-react-google-books/issues"
   },
-  "homepage": "https://github.com/jameygronewald/trackPacker#readme",
+  "homepage": "https://github.com/bread-w/gt-react-google-books#readme",
   "dependencies": {
     "express": "^4.17.1",
     "if-env": "^1.0.4",
