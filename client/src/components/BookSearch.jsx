@@ -5,11 +5,12 @@ class BookSearch extends Component {
   state = {
     books: [],
     savedBooks: [],
+    search: "",
   };
 
   handleBookSearch = (e) => {
-    const searchedBook = e.target.value;
-    API.getSearchedBook(searchedBook).then((res) =>
+    console.log(this.state.search);
+    API.getSearchedBook(this.state.search).then((res) =>
       this.setState({ books: res.data.items })
     );
   };
@@ -17,20 +18,50 @@ class BookSearch extends Component {
   handleSaveBook = (id) => {
     API.saveBook(id).then((res) => {
       this.setState({
-        savedBooks: this.getSnapshotBeforeUpdate.savedBook.concat([res]),
+        savedBooks: this.state.savedBook.concat([res]),
       });
+    });
+  };
+
+  setBookSearch = (e) => {
+    this.setState({ search: e.target.value });
+  };
+
+  generateCard = () => {
+    return this.state.books.map((book) => {
+      return (
+        <div className="card">
+          <h5 className="card-header">{book.volumeInfo.title}</h5>
+          <img
+            src={
+              (book.volumeInfo.imageLinks &&
+                book.volumeInfo.imageLinks.smallThumbnail) ||
+              "https://www.placecage.com/200/300"
+            }
+            alt={book.volumeInfo.title}
+          />
+          <div className="card-body">
+            <h5 className="card-title">by: {book.volumeInfo.authors}</h5>
+            <p className="card-text">{book.volumeInfo.description}</p>
+            <a
+              href={book.volumeInfo.canonicalVolumeLink}
+              className="btn btn-primary"
+              target="_blank"
+            >
+              View Book
+            </a>
+          </div>
+        </div>
+      );
     });
   };
 
   render() {
     return (
       <div>
-        <input
-          type="text"
-          className="form-control"
-          name="search"
-          onChange={this.handleBookSearch}
-        />
+        <input type="text" name="search" onChange={this.setBookSearch} />
+        <button onClick={this.handleBookSearch}>Search</button>
+        {this.state.books.length && this.generateCard()}
       </div>
     );
   }
