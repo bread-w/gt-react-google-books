@@ -1,19 +1,18 @@
 import axios from "axios";
 export default {
-
-  getBook: function (query) {
+  getSearchedBook: function (query) {
     return axios.get(`https://www.googleapis.com/books/v1/volumes?q=${query}`);
   },
 
-  savedBooks: function () {
-    return axios.get("/api/books").then((result) => result.data);
+  getSavedBook: function () {
+    return axios.get("/api/books").then((res) => res.data);
   },
 
-  saveBook: function (bookInfo) {
-    return axios.post("/api/books", bookInfo).then((result) => result.data);
+  saveBook: function (bookData) {
+    return axios.delete("/api/books/" + id).then((res) => res.data);
   },
 
   deleteBook: function (id) {
-    return axios.delete("/api/books/" + id).then((result) => result.data);
+    return axios.delete("/api/books/" + id).then((res) => res.data);
   },
 };
