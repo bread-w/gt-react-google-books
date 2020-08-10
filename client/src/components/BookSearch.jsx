@@ -36,9 +36,10 @@ class BookSearch extends Component {
             src={
               (book.volumeInfo.imageLinks &&
                 book.volumeInfo.imageLinks.smallThumbnail) ||
-              "https://www.placecage.com/200/300"
+              "https://www.placecage.com/300/200"
             }
             alt={book.volumeInfo.title}
+            width="300"
           />
           <div className="card-body">
             <h5 className="card-title">by: {book.volumeInfo.authors}</h5>
