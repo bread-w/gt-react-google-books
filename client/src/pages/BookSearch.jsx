@@ -31,17 +31,20 @@ class BookSearch extends Component {
     return this.state.books.map((book) => {
       return (
         <div className="card" style={{ margin: "10px", border: "solid" }}>
-          <h3 className="card-header" style={{ color: "#c3c9cd", backgroundColor: "#1a1a1b"  }}>
+          <h3
+            className="card-header"
+            style={{ color: "#c3c9cd", backgroundColor: "#1a1a1b" }}
+          >
             {book.volumeInfo.title}
           </h3>
           <img
             src={
               (book.volumeInfo.imageLinks &&
                 book.volumeInfo.imageLinks.smallThumbnail) ||
-              "https://www.placecage.com/300/200"
+              "https://www.placecage.com/150/150"
             }
             alt={book.volumeInfo.title}
-            width="300"
+            width="150"
             style={{ marginLeft: "auto", marginRight: "auto" }}
           />
           <div className="card-body">
@@ -64,9 +67,23 @@ class BookSearch extends Component {
   render() {
     return (
       <div>
-        <input type="text" name="search" onChange={this.setBookSearch} />
-        <button onClick={this.handleBookSearch}>Search</button>
-        {this.state.books.length && this.generateCard()}
+        <div className="row" style={{ marginTop: "5px" }}>
+          <div className="col-sm-4"></div>
+          <div className="col-sm-4">
+            <input
+              type="text"
+              name="search"
+              className="form-control"
+              onChange={this.setBookSearch}
+              placeholder="Enter Book Name Here..."
+            />
+          </div>
+          <button onClick={this.handleBookSearch} className="btn-danger">
+            Search
+          </button>
+        </div>
+        {(this.state.books.length && this.generateCard()) ||
+          this.state.books.length === 0}
       </div>
     );
   }
