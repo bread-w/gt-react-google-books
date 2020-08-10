@@ -30,8 +30,10 @@ class BookSearch extends Component {
   generateCard = () => {
     return this.state.books.map((book) => {
       return (
-        <div className="card">
-          <h5 className="card-header">{book.volumeInfo.title}</h5>
+        <div className="card" style={{ margin: "10px", border: "solid" }}>
+          <h3 className="card-header" style={{ color: "#c3c9cd", backgroundColor: "#1a1a1b"  }}>
+            {book.volumeInfo.title}
+          </h3>
           <img
             src={
               (book.volumeInfo.imageLinks &&
@@ -40,6 +42,7 @@ class BookSearch extends Component {
             }
             alt={book.volumeInfo.title}
             width="300"
+            style={{ marginLeft: "auto", marginRight: "auto" }}
           />
           <div className="card-body">
             <h5 className="card-title">by: {book.volumeInfo.authors}</h5>
@@ -48,6 +51,7 @@ class BookSearch extends Component {
               href={book.volumeInfo.canonicalVolumeLink}
               className="btn btn-primary"
               target="_blank"
+              rel="noopener noreferrer"
             >
               View Book
             </a>
