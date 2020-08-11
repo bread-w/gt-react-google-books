@@ -7,6 +7,7 @@ class SavedBooks extends Component {
   componentDidMount() {
     this.generateSavedBooks();
   }
+
   generateSavedBooks = () => {
     API.getSavedBook().then((res) => {
       this.setState({ savedBooks: res });
@@ -19,6 +20,9 @@ class SavedBooks extends Component {
       this.setState({
         savedBooks: this.state.savedBooks,
       });
+    });
+    API.getSavedBook().then((res) => {
+      this.setState({ savedBooks: res });
     });
   };
   render() {
@@ -52,9 +56,11 @@ class SavedBooks extends Component {
               <button
                 type="button"
                 className="btn btn-primary"
-                style={{marginLeft: "5px"}}
+                style={{ marginLeft: "5px" }}
                 onClick={() => this.handleDeleteBook(books._id)}
-              >Delete Book</button>
+              >
+                Delete Book
+              </button>
             </div>
           </div>
         ))}
