@@ -8,8 +8,8 @@ export default {
     return axios.get("/api/books").then((res) => res.data);
   },
 
-  saveBook: function (id, bookData) {
-    return axios.post("/api/books/" + id).then((res) => res.data);
+  saveBook: function (bookData) {
+    return axios.post("/api/books/", bookData).then((res) => res.data);
   },
 
   deleteBook: function (id) {

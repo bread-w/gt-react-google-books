@@ -15,8 +15,8 @@ class BookSearch extends Component {
     );
   };
 
-  handleSaveBook = (id) => {
-    API.saveBook(id).then((res) => {
+  handleSaveBook = (bookData) => {
+    API.saveBook(bookData).then((res) => {
       this.setState({
         savedBooks: this.state.savedBook.concat([res]),
       });
@@ -58,6 +58,21 @@ class BookSearch extends Component {
             >
               View Book
             </a>
+            <button
+              type="button"
+              className="btn btn-primary"
+              onClick={() =>
+                this.handleSaveBook({
+                  title: book.volumeInfo.title,
+                  authors: book.volumeInfo.authors,
+                  description: book.volumeInfo.description,
+                  image: book.volumeInfo.imageLinks.smallThumbnail,
+                  link: book.volumeInfo.canonicalVolumeLink,
+                })
+              }
+            >
+              Save Book
+            </button>
           </div>
         </div>
       );
