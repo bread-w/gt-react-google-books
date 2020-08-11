@@ -66,6 +66,7 @@ class BookSearch extends Component {
             <button
               type="button"
               className="btn btn-primary"
+              style={{marginLeft: "5px"}}
               onClick={() =>
                 this.handleSaveBook({
                   title: book.volumeInfo.title,
