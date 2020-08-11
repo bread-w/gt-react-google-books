@@ -14,23 +14,22 @@
 
 ## Description
 
-This app built using react allows users to search for books using the google books api, as well as save and 
+This app built using react allows users to search for books using the google books api and save their favorite books to their saved books. In the saved books tab, users may delete books.
 
 ## Installation
 
 ### To use in VScode
 1. Clone the github repository linked below to your local machine. 
-2. Next, run npm install to install any of the required dependencies.
+2. Next, run npm install in the root folder to install any of the required dependencies.
+3. Afterwards, cd into the client directory and run npm install again.
 3. Then run npm start in your command line/terminal to view the webpage on you localhost. 
 4. You may also use the link provided below to navigate directly to the deployed webpage.
 
 ## Usage
 
-![aboutPage](./src/img/aboutPage.png)
+![BookSearch](./client/src/img/BookSearch.png)
 
-![portfolioPage](./src/img/contactPage.png)
-
-![contactPage](./src/img/portfolioPage.png)
+![SavedBooks](./client/src/img/SavedBooks.png)
 
 ## Credits
 ```
@@ -53,9 +52,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 ## URL
 
-[Link to GitHub repository](https://github.com/bread-w/bw-react-portfolio)
+[Link to GitHub repository](https://github.com/bread-w/gt-react-google-books)
 
-[Link to deployed webpage](https://bread-w.github.io/bw-react-portfolio/)
+[Link to deployed webpage]()
 
 ## Questions
 
