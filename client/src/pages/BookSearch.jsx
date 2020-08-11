@@ -16,11 +16,16 @@ class BookSearch extends Component {
   };
 
   handleSaveBook = (bookData) => {
-    API.saveBook(bookData).then((res) => {
-      this.setState({
-        savedBooks: this.state.savedBook.concat([res]),
+    API.saveBook(bookData)
+      .then((res) => {
+        this.setState({
+          savedBooks: this.state.savedBooks.concat([res]),
+        });
+        console.log((this.state.savedBooks));
+      })
+      .catch((err) => {
+        console.log(err);
       });
-    });
   };
 
   setBookSearch = (e) => {

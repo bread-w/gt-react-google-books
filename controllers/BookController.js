@@ -1,21 +1,21 @@
 const express = require("express");
 const router = express.Router();
-const db = "../models";
+const bookSearch = require("../models/Book");
 
 router.get("/api/books", function (req, res) {
-  db.Book.find({}).then((bookSearch) => {
-    res.json(bookSearch);
+  bookSearch.find({}).then((getBooks) => {
+    res.json(getBooks);
   });
 });
 
 router.post("/api/books", function (req, res) {
-  db.Book.create(req.body).then((saveBook) => {
+  bookSearch.create(req.body).then((saveBook) => {
     res.json(saveBook);
   });
 });
 
 router.delete("/api/books/:id", function (req, res) {
-  db.Book.deleteOne({ _id: req.params.id }, req.body).then((deleteBook) => {
+  bookSearch.deleteOne({ _id: req.params.id }, req.body).then((deleteBook) => {
     res.json(deleteBook);
   });
 });
